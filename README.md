@@ -293,6 +293,7 @@ Week05 runbook: [runbooks/week05/README.md](runbooks/week05/README.md)
 边界说明：
 - Agent 只能通过 `query_support_kpis_v1` 查询 `analytics.agent_tool_input_view`。
 - 不接受 raw SQL，不暴露 PII 字段，不绕过 `metric_registry_v1.yml`。
+- v1.1 实验扩展加入首响/处理/比率指标、指标包元数据、组织范围策略、实验口径确认和审计字段。
 - dbt `target/` 和本地运行日志是临时产物，不提交。
 
 ---
