@@ -17,7 +17,7 @@ services:
   # 1. PostgreSQL — 结构化存储 + pgvector 向量检索
   # ─────────────────────────────────────────────────────────────────────────────
   postgres:
-    image: dockerhub.icu/pgvector/pgvector:pg16
+    image: pgvector/pgvector:pg16
     container_name: omni_postgres
     restart: unless-stopped
     environment:
@@ -41,7 +41,7 @@ services:
   # 2. MinIO — 对象存储 (S3 兼容), raw zone 与中间制品落盘
   # ─────────────────────────────────────────────────────────────────────────────
   minio:
-    image: dockerhub.icu/minio/minio:latest
+    image: minio/minio:latest
     container_name: omni_minio
     restart: unless-stopped
     command: server /data --console-address ":9001"
@@ -65,7 +65,7 @@ services:
   # 3. MinIO Init — 自动创建 bucket 分区
   # ─────────────────────────────────────────────────────────────────────────────
   minio_init:
-    image: dockerhub.icu/minio/mc:latest
+    image: minio/mc:latest
     container_name: omni_minio_init
     depends_on:
       minio:
@@ -242,7 +242,7 @@ services:
   # 7. OpenTelemetry Collector — 统一 trace / metric / log 采集
   # ─────────────────────────────────────────────────────────────────────────────
   otel_collector:
-    image: dockerhub.icu/otel/opentelemetry-collector-contrib:latest
+    image: otel/opentelemetry-collector-contrib:latest
     container_name: omni_otel_collector
     restart: unless-stopped
     command: ["--config=/etc/otel/config.yaml"]
@@ -259,7 +259,7 @@ services:
   # 8. Phoenix (Arize) — AI 请求可观测 + bad case replay
   # ─────────────────────────────────────────────────────────────────────────────
   phoenix:
-    image: dockerhub.icu/arizephoenix/phoenix:latest
+    image: arizephoenix/phoenix:latest
     container_name: omni_phoenix
     restart: unless-stopped
     environment:
