@@ -20,7 +20,9 @@
       "Bash(git commit:*)",
       "Bash(git push *)",
       "WebSearch",
-      "WebFetch(domain:gist.github.com)"
+      "WebFetch(domain:gist.github.com)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)"
     ]
   }
 }
